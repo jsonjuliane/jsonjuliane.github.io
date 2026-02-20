@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kim Jason Juliane - Senior Android Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1e293b;
+      --bg-soft: #334155;
+      --bg-card: #334155;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-soft: #0ea5e9;
+      --accent-bg: #0c4a6e;
+      --border: #475569;
+      --highlight-bg: #334155;
+      --highlight-border: #38bdf8;
+      --font-sans: 'DM Sans', -apple-system, sans-serif;
+      --font-display: 'DM Serif Display', Georgia, serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 10.5pt;
+      line-height: 1.55;
+      color: var(--text);
+      background: var(--bg);
+      min-height: 100vh;
+    }
+
+    .resume {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 40px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      body { background: #1e293b; }
+      .resume {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        min-height: calc(100vh - 80px);
+        align-items: stretch;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .sidebar {
+        background: linear-gradient(180deg, #1e293b 0%, #334155 100%);
+        padding: 36px 28px;
+        position: sticky;
+        top: 0;
+        align-self: stretch;
+        overflow-x: hidden;
+        overflow-y: auto;
+        min-width: 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        border-right: 1px solid var(--border);
+      }
+      .sidebar * { max-width: 100%; }
+      .main-content {
+        padding: 36px 40px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        min-width: 0;
+      }
+      .sidebar .contact { grid-template-columns: 1fr; }
+      .sidebar .highlights-grid { grid-template-columns: 1fr; }
+      .sidebar .tech-grid { grid-template-columns: 1fr; }
+      .sidebar .tech-category { margin-top: 10px; }
+      .sidebar .tech-footer { grid-template-columns: 1fr; }
+    }
+
+    .header {
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 3px solid var(--accent);
+    }
+
+    .name {
+      font-family: var(--font-display);
+      font-size: 26pt;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .title {
+      font-size: 12pt;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .tagline {
+      font-size: 9pt;
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    .highlights {
+      background: var(--highlight-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      font-size: 9pt;
+    }
+
+    .highlights-title {
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+    }
+
+    .highlights-grid span { color: var(--text-muted); }
+    .highlights-grid strong { color: var(--text); font-weight: 600; }
+    .metric { color: var(--accent); font-weight: 700; }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 32px;
+      margin-bottom: 24px;
+      padding: 18px 0;
+      font-size: 9.5pt;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    @media (min-width: 520px) {
+      .contact { grid-template-columns: repeat(4, 1fr); gap: 16px 24px; }
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .contact-label {
+      font-size: 7.5pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .contact-value {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .contact a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact a:hover { text-decoration: underline; }
+
+    .contact-availability {
+      grid-column: 1 / -1;
+      margin-top: 4px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      font-size: 9pt;
+      color: var(--text-muted);
+    }
+
+    .contact-availability strong { color: var(--text); }
+
+    .section { margin-bottom: 24px; }
+
+    .section-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tech-category {
+      font-size: 8pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+    .tech-category:first-of-type { margin-top: 0; }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 28px;
+      font-size: 9pt;
+    }
+
+    .tech-label { font-weight: 600; color: var(--text); }
+    .tech-value { color: var(--text-muted); }
+
+    .tech-footer {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px 24px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 8.5pt;
+    }
+
+    .tech-footer-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .tech-footer-label {
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+    }
+
+    .tech-footer-value { color: var(--text); }
+    .tech-footer-value .open-to { color: var(--accent); font-weight: 500; }
+
+    .job { margin-bottom: 18px; }
+    .job:last-child { margin-bottom: 0; }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 2px 8px;
+      margin-bottom: 4px;
+    }
+
+    .job-title { font-weight: 600; font-size: 10pt; color: var(--text); }
+    .job-company { font-weight: 600; }
+    .job-company a { color: var(--accent); text-decoration: none; }
+    .job-meta { font-size: 8.5pt; color: var(--text-muted); }
+    .job-client { font-size: 8.5pt; color: var(--text-muted); font-style: italic; margin-bottom: 4px; }
+
+    .job-bullets { list-style: none; padding-left: 0; }
+    .job-bullets li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 6px;
+      font-size: 9.5pt;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .job-bullets li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 8pt;
+    }
+    .job-bullets strong { color: var(--text); font-weight: 600; }
+
+    .education-degree { font-weight: 600; margin-bottom: 2px; }
+    .education-meta { font-size: 9pt; color: var(--text-muted); }
+
+    .project { margin-bottom: 10px; }
+    .project-title { font-weight: 600; font-size: 9pt; margin-bottom: 2px; }
+    .project-title a { color: var(--accent); text-decoration: none; }
+    .project-desc { font-size: 8.5pt; color: var(--text-muted); padding-left: 12px; }
+
+    .misc-item { font-size: 9pt; color: var(--text-muted); margin-bottom: 2px; }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    body { animation: fadeIn 0.5s ease-out; }
+    .header { animation: fadeInUp 0.5s ease-out 0.1s both; }
+    .highlights { animation: fadeInUp 0.5s ease-out 0.15s both; }
+    .contact { animation: fadeInUp 0.5s ease-out 0.2s both; }
+    .section { animation: fadeInUp 0.4s ease-out 0.25s both; }
+
+    a { transition: color 0.2s ease, opacity 0.2s ease; }
+    a:hover { opacity: 0.85; }
+    .job, .project { transition: transform 0.2s ease; }
+    .job:hover, .project:hover { transform: translateX(2px); }
+
+    @media (prefers-reduced-motion: reduce) {
+      body, .header, .highlights, .contact, .section { animation: none; }
+      .job:hover, .project:hover { transform: none; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .resume { padding: 24px 20px; }
+      body { font-size: 10pt; }
+      .name { font-size: 22pt; }
+      .highlights-grid { grid-template-columns: 1fr; }
+      .tech-grid { grid-template-columns: 1fr; gap: 6px 0; }
+      .tech-footer { grid-template-columns: 1fr; }
+      .job-header { flex-direction: column; align-items: flex-start; gap: 2px; }
+    }
+
+    @media (max-width: 480px) {
+      .resume { padding: 20px 16px; }
+      body { font-size: 9.5pt; }
+      .name { font-size: 20pt; }
+      .title { font-size: 11pt; }
+      .contact { grid-template-columns: 1fr; gap: 10px; }
+      .contact-availability { padding-top: 10px; font-size: 8.5pt; }
+      .section-title { font-size: 9pt; letter-spacing: 0.08em; }
+      .job-bullets li { font-size: 9pt; }
+    }
+
+    @media print {
+      body, .header, .highlights, .contact, .section { animation: none !important; }
+      .job:hover, .project:hover { transform: none !important; }
+      body { background: #fff !important; color: #000 !important; padding: 0 !important; }
+      .resume {
+        display: block !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0.5in 0.6in !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+      }
+      .sidebar {
+        position: static !important;
+        height: auto !important;
+        background: #fff !important;
+        border-right: none !important;
+        padding: 0 0 24px 0 !important;
+      }
+      .main-content { padding: 0 !important; }
+      .contact { grid-template-columns: repeat(4, 1fr); gap: 12px 16px; padding: 14px 0; }
+      .highlights, .highlights-grid { width: 100%; max-width: 100%; }
+      .sidebar .section { width: 100%; max-width: 100%; }
+      .highlights-grid { grid-template-columns: 1fr 1fr !important; gap: 6px 24px !important; }
+      .tech-category { color: var(--accent) !important; }
+      .tech-grid { grid-template-columns: 1fr 1fr !important; gap: 8px 28px !important; }
+      .tech-footer { grid-template-columns: repeat(3, 1fr) !important; }
+      .section { margin-bottom: 18px; }
+      .job { margin-bottom: 14px; }
+      .job-bullets li { margin-bottom: 4px; }
+      .section-title { margin-bottom: 10px; padding-bottom: 4px; }
+      @page { margin: 0.5in; size: letter; }
+      * { color: inherit !important; }
+      .sidebar * { color: #000 !important; }
+      a { color: var(--accent) !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume">
+    <aside class="sidebar">
+      <header class="header">
+    <h1 class="name">JULIANE, KIM JASON</h1>
+    <p class="title">Senior Android Engineer</p>
+    <p class="tagline">10+ years building Android apps for international clients—US agencies, Asia's largest delivery platforms, and health-tech. Proven in remote, cross-timezone teams.</p>
+  </header>
+
+  <div class="contact">
+    <div class="contact-item">
+      <span class="contact-label">Email</span>
+      <span class="contact-value">jsonjuliane@gmail.com</span>
+    </div>
+    <div class="contact-item">
+      <span class="contact-label">Phone</span>
+      <span class="contact-value">+63 956 850 4890</span>
+    </div>
+    <div class="contact-item">
+      <span class="contact-label">LinkedIn</span>
+      <a href="https://www.linkedin.com/in/jsonjuliane/" class="contact-value">linkedin.com/in/jsonjuliane</a>
+    </div>
+    <div class="contact-item">
+      <span class="contact-label">GitHub</span>
+      <a href="https://github.com/jsonjuliane" class="contact-value">github.com/jsonjuliane</a>
+    </div>
+    <div class="contact-availability">
+      <strong>Based in</strong> Metro Manila, Philippines (UTC+8) &nbsp;·&nbsp; <strong>Open to</strong> remote and international roles
+    </div>
+  </div>
+
+  <div class="highlights">
+    <div class="highlights-title">Key Highlights</div>
+    <div class="highlights-grid">
+      <span><span class="metric">10+ years</span> Android experience</span>
+      <span><span class="metric">Sole engineer</span> on SiteCapture (5M+ projects)</span>
+      <span><span class="metric">International</span> clients (US, Australia, Hong Kong)</span>
+      <span><span class="metric">DevOps</span> ownership at SkedGo & Outliant</span>
+      <span><span class="metric">Lead</span> teams at LalaFood, Taison Digital</span>
+      <span><span class="metric">400+ cities</span> via TripGo SDK integration</span>
+    </div>
+  </div>
+
+  <section class="section">
+    <h2 class="section-title">Technical Expertise</h2>
+    <div class="tech-category">Languages</div>
+    <div class="tech-grid">
+      <div><span class="tech-label">Primary</span><br><span class="tech-value">Kotlin, Java, Swift</span></div>
+      <div><span class="tech-label">Cross-Platform</span><br><span class="tech-value">Dart, C#, XML, Lua</span></div>
+      <div><span class="tech-label">Backend</span><br><span class="tech-value">Python, Node.js</span></div>
+    </div>
+    <div class="tech-category">iOS</div>
+    <div class="tech-grid">
+      <div><span class="tech-label">Platform</span><br><span class="tech-value">Xcode</span></div>
+      <div><span class="tech-label">UI</span><br><span class="tech-value">UIKit</span></div>
+      <div><span class="tech-label">Language</span><br><span class="tech-value">Swift</span></div>
+    </div>
+    <div class="tech-category">Android & Mobile</div>
+    <div class="tech-grid">
+      <div><span class="tech-label">Platform</span><br><span class="tech-value">Android SDK</span></div>
+      <div><span class="tech-label">UI</span><br><span class="tech-value">Jetpack Compose, XML, Material Design</span></div>
+      <div><span class="tech-label">Architecture</span><br><span class="tech-value">MVVM, MVP, Clean Architecture, MVC</span></div>
+      <div><span class="tech-label">DI</span><br><span class="tech-value">Dagger Hilt, Dagger 2</span></div>
+      <div><span class="tech-label">Async & Data</span><br><span class="tech-value">Kotlin Coroutines, Flow, RxJava/RxKotlin</span></div>
+      <div><span class="tech-label">Persistence</span><br><span class="tech-value">Room, SQLite (via Room)</span></div>
+      <div><span class="tech-label">Networking</span><br><span class="tech-value">Retrofit, OkHttp, Ktor</span></div>
+      <div><span class="tech-label">Image · Date/Time · Maps</span><br><span class="tech-value">Glide, Joda Time, Google Maps</span></div>
+      <div><span class="tech-label">Background · Testing</span><br><span class="tech-value">WorkManager, JUnit, MockK</span></div>
+      <div><span class="tech-label">Firebase</span><br><span class="tech-value">Cloud Messaging, Crashlytics, Realtime DB, Remote Config</span></div>
+      <div><span class="tech-label">Monitoring</span><br><span class="tech-value">Instabug</span></div>
+    </div>
+    <div class="tech-category">Backend</div>
+    <div class="tech-grid">
+      <div><span class="tech-label">Databases</span><br><span class="tech-value">MySQL, PostgreSQL, MongoDB, SQLite</span></div>
+      <div><span class="tech-label">Integrations</span><br><span class="tech-value">Stripe, Crowdin</span></div>
+    </div>
+    <div class="tech-category">Cross-Platform</div>
+    <div class="tech-grid">
+      <div><span class="tech-label">Frameworks</span><br><span class="tech-value">Flutter, Cordova, Ionic</span></div>
+      <div><span class="tech-label">Flutter stack</span><br><span class="tech-value">Riverpod, GoRouter, Hive, Firebase (Auth, Firestore), PDF/printing</span></div>
+    </div>
+    <div class="tech-category">DevOps</div>
+    <div class="tech-grid">
+      <div><span class="tech-label">CI/CD</span><br><span class="tech-value">GitHub Actions, Bitrise, Jenkins</span></div>
+      <div><span class="tech-label">Version Control</span><br><span class="tech-value">Git</span></div>
+    </div>
+    <div class="tech-footer">
+      <div class="tech-footer-item">
+        <span class="tech-footer-label">Methodologies</span>
+        <span class="tech-footer-value">OOP, Software Development, Project Management</span>
+      </div>
+      <div class="tech-footer-item">
+        <span class="tech-footer-label">Open to</span>
+        <span class="tech-footer-value"><span class="open-to">KMP, MVI</span></span>
+      </div>
+      <div class="tech-footer-item">
+        <span class="tech-footer-label">Languages</span>
+        <span class="tech-footer-value">English, Filipino</span>
+      </div>
+    </div>
+  </section>
+</aside>
+
+  <main class="main-content">
+  <section class="section">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="job">
+      <div class="job-header"><span class="job-title">Cross-Platform Engineer</span><span class="job-meta">2024</span></div>
+      <div class="job-meta">Freelance</div>
+      <ul class="job-bullets">
+        <li><strong>POS App:</strong> Built cross-platform Point-of-Sale from scratch—Web, Android, iOS, macOS; Flutter, Riverpod, GoRouter, Hive (offline), Firebase (Auth, Firestore), PDF/printing; inventory, orders, reports, user management, multi-branch; delivered to client</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header"><span class="job-title">Senior Android Engineer</span><span class="job-meta">03/2023 – Present</span></div>
+      <div class="job-meta"><span class="job-company"><a href="https://skedgo.com/">SkedGo</a></span> (MaaS platform)</div>
+      <ul class="job-bullets">
+        <li><strong>Development & leadership:</strong> Lead Android development for MaaS platform; oversee requirements, timelines, team delivery; review PRs</li>
+        <li><strong>Product alignment:</strong> Sprint planning with CTO; drive Android codebase and feature parity with refined iOS experience</li>
+        <li><strong>Accessibility:</strong> Implemented and maintain dark mode, flexible text sizing across existing apps</li>
+        <li><strong>Localization & automation:</strong> Improved multi-language support via Crowdin; automated translation push/pull workflow through GitHub Actions</li>
+        <li><strong>Stability & reliability:</strong> Resolved lifecycle issues (screen restoration, user progress); fixed OOM/ANR crashes; addressed Firebase issues</li>
+        <li><strong>Compliance & build:</strong> Addressed 16KB Play policy requirement; updated deprecated dependencies that blocked build</li>
+        <li><strong>DevOps:</strong> Own CI/CD pipelines, build automation, release processes</li>
+        <li><strong>SDK adoption:</strong> TripGo SDK powers 3+ client apps (400+ cities, 4000+ transport providers globally)</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header"><span class="job-title">Senior Android Engineer</span><span class="job-meta">03/2021 – 03/2023</span></div>
+      <div class="job-meta"><span class="job-company"><a href="https://www.outliant.com/">Outliant</a></span> (International digital agency)</div>
+      <p class="job-client">Client: <a href="https://sitecapture.com/">SiteCapture</a></p>
+      <ul class="job-bullets">
+        <li><strong>Sole Android engineer:</strong> End-to-end ownership of SiteCapture—field operations platform (5M+ projects, 100M+ photos) for solar, property management, construction across the US</li>
+        <li><strong>Technical leadership:</strong> Provide direction for applications; drive architecture decisions; deliver scalable, maintainable solutions</li>
+        <li><strong>Codebase modernization:</strong> Migrating Java to Kotlin; introduced Jetpack Compose, Coroutines, Hilt, Room, unit tests</li>
+        <li><strong>DevOps & automation:</strong> Integrated Jira with Bitrise—ticket status syncs with development workflow; automated builds deploy to Firebase (debug) and Play Store (prod)</li>
+        <li><strong>Performance & stability:</strong> Resolved long-standing ANRs and crashes; reduced loading times from ANR-prone to several seconds</li>
+        <li><strong>Media & sync:</strong> Migrated to CameraX; FFmpegKit for compression, decode/encode, video trimming; improved sync engine for web–mobile</li>
+        <li><strong>Auth:</strong> Integrated Auth0</li>
+        <li><strong>Stakeholder collaboration:</strong> Collaborate directly with US-based clients to gather requirements; align technical with business goals</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header"><span class="job-title">Lead Android Engineer</span><span class="job-meta">07/2018 – 03/2021</span></div>
+      <div class="job-meta"><span class="job-company"><a href="https://web.lalamove.com/">LalaFood</a></span> (Lalamove subsidiary — closed) · Makati, Philippines</div>
+      <ul class="job-bullets">
+        <li><strong>Product pioneer:</strong> Pioneer of Lalamove's Food Industry startup LalaFood; delivered working food delivery app within 6 months with entire team; led development of all apps (User, Driver, Merchant) from scratch</li>
+        <li><strong>Architecture:</strong> Introduced MVVM with Dagger/Hilt, Room, RxJava/RxKotlin, Kotlin Coroutines for scalable, maintainable codebase</li>
+        <li><strong>Maps & notifications:</strong> Google Maps, Directions, Places, Geofencing; Firebase Cloud Messaging, Crashlytics, Remote Config for live map updates and push notifications</li>
+        <li><strong>Team leadership:</strong> Led 2 Android engineers; collaborated with international engineers from Hong Kong; managed timelines, code quality; implemented CI/CD, code reviews, load/stress testing</li>
+        <li><strong>Operations:</strong> Led ongoing maintenance, bug fixes, feature releases for high-traffic production apps</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header"><span class="job-title">Lead Mobile Engineer</span><span class="job-meta">11/2017 – 07/2018</span></div>
+      <div class="job-meta"><span class="job-company"><a href="https://dogandrooster.com/">Dog and Rooster Inc.</a></span> (US-based, 250+ clients) · Makati, Philippines</div>
+      <ul class="job-bullets">
+        <li><strong>Product delivery:</strong> Pioneered, redesigned, and released multiple Android and cross-platform apps for US/global clients; end-to-end delivery using Java, React Native, Ionic, PhoneGap, Cordova across agency's client portfolio</li>
+        <li><strong>SDK integration:</strong> Designed systems with Android Mobile Vision (barcode/face detection), ZXing (scanning), Google Pay (WePay, Payment API) for payments, Firebase for analytics and crash reporting</li>
+        <li><strong>Cross-functional leadership:</strong> Android lead and standing PM; coordinated core app functionalities, requirements, deliverables with international designers, engineers, managers across time zones; ensured on-schedule delivery</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header"><span class="job-title">Lead Mobile Engineer</span><span class="job-meta">04/2016 – 11/2017</span></div>
+      <div class="job-meta"><span class="job-company"><a href="https://www.upmood.com/">Taison Digital</a></span> (now Upmood) · UN, Manila, Philippines</div>
+      <ul class="job-bullets">
+        <li><strong>Product pioneer:</strong> Led creation of Upmood—first emotion-tracking wearable and app; built two major apps (Android & iOS) from scratch; 1K+ downloads, Health & Fitness</li>
+        <li><strong>Domain expertise:</strong> Converted research-backed emotion algorithm to Java with scientists from Hong Kong; translated physiological data (heart rate, stress, vitality) into 11 emotions at 1.5–3 min intervals</li>
+        <li><strong>IoT integration:</strong> Integrated BLE with PPG-sensor smart watch; designed pipelines for raw sensor data → real-time emotional trends</li>
+        <li><strong>App features:</strong> Built monitoring app for emotional health, mood tracking, friend/family updates, watch notifications (SMS, calls)</li>
+        <li><strong>Team leadership:</strong> Spearheaded mobile engineering; supervised 1 entry-level engineer and 1 trainee</li>
+      </ul>
+    </div>
+
+    <div class="job">
+      <div class="job-header"><span class="job-title">Software Engineer</span><span class="job-meta">04/2015 – 04/2016</span></div>
+      <div class="job-meta">Codesignate Inc · BGC, Philippines</div>
+      <ul class="job-bullets">
+        <li><strong>Client delivery:</strong> Focused on development; released multiple Android apps for multiple clients; worked closely with PMs; reported team progress on sprint basis</li>
+        <li><strong>Ownership:</strong> Took over lead responsibility; worked with 1 mid-level Android engineer to deliver projects from scratch to production</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Education</h2>
+    <div class="education-degree">Bachelor of Science in Computer Science (Graduate with Honors)</div>
+    <div class="education-meta">Lyceum of the Philippines University · Intramuros, Manila · 2011 – 2015</div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Projects</h2>
+    <div class="project">
+      <div class="project-title"><strong>SkedGo / TripGo</strong> · <a href="https://play.google.com/store/apps/developer?id=SkedGo+Pty+Ltd">Google Play</a></div>
+      <div class="project-desc">MaaS—TripGo, ODIN PASS, Choose How You Move. 400+ cities, 4000+ providers. TripGo SDK: 3+ client apps.</div>
+    </div>
+    <div class="project">
+      <div class="project-title"><strong>SiteCapture</strong> (Outliant) · <a href="https://play.google.com/store/apps/details?id=com.sitecapture.app.sitecapture&hl=en">Google Play</a></div>
+      <div class="project-desc">Field operations—photo capture, CRM integration. 10K+ downloads. Solar, property management, construction.</div>
+    </div>
+    <div class="project">
+      <div class="project-title"><strong>LalaFood Apps</strong> (Lalamove — closed)</div>
+      <div class="project-desc">User, Driver, Merchant ecosystem—Metro Manila's largest food delivery platform.</div>
+    </div>
+    <div class="project">
+      <div class="project-title"><strong>Upmood</strong> (Taison Digital) · <a href="https://play.google.com/store/apps/details?id=com.td.upmood&hl=en">Google Play</a></div>
+      <div class="project-desc">Emotion-tracking wearable app; PPG + BLE; 11 emotions. 1K+ downloads.</div>
+    </div>
+    <div class="project">
+      <div class="project-title"><strong>POS App</strong> (Freelance)</div>
+      <div class="project-desc">Cross-platform Point-of-Sale—Web, Android, iOS, macOS. Flutter, Riverpod, GoRouter, Hive, Firebase (Auth, Firestore), PDF/printing. Inventory, orders, reports, user management, multi-branch.</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Mentorship & Leadership</h2>
+    <p class="misc-item"><strong>Ground Gurus</strong> · Coding Bootcamp Mentor (2017–2018) · Android Development</p>
+    <p class="misc-item"><strong>Junior Philippine Computer Society</strong> · Founder & President · Lyceum of the Philippines University</p>
+  </section>
+  </main>
+  </div>
+</body>
+</html>
