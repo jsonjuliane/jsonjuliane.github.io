@@ -376,6 +376,32 @@ function hideTooltipIfOutside(e) {
 document.addEventListener('click', hideTooltipIfOutside);
 document.addEventListener('touchend', hideTooltipIfOutside);
 
+// ===== Floating Section Nav =====
+const fabTrigger = document.getElementById('fab-trigger');
+const fabMenu = document.getElementById('fab-menu');
+
+if (fabTrigger && fabMenu) {
+  fabTrigger.addEventListener('click', () => {
+    const isOpen = fabTrigger.getAttribute('aria-expanded') === 'true';
+    fabTrigger.setAttribute('aria-expanded', !isOpen);
+    fabMenu.setAttribute('aria-hidden', isOpen);
+  });
+
+  fabMenu.querySelectorAll('.fab-link').forEach(link => {
+    link.addEventListener('click', () => {
+      fabTrigger.setAttribute('aria-expanded', 'false');
+      fabMenu.setAttribute('aria-hidden', 'true');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.fab-nav')) {
+      fabTrigger.setAttribute('aria-expanded', 'false');
+      fabMenu.setAttribute('aria-hidden', 'true');
+    }
+  });
+}
+
 // ===== Contact Form Modal =====
 const contactModalOverlay = document.getElementById('contact-modal-overlay');
 const contactModalClose = document.getElementById('contact-modal-close');

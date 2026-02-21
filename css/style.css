@@ -43,7 +43,7 @@ html {
 }
 
 /* Remove 300ms tap delay on mobile for faster clicks */
-a, button, .portfolio-card, .skill-tag, .theme-toggle, .modal-close, .carousel-nav, .btn-view-fullscreen, .image-viewer-close, .image-viewer-prev, .image-viewer-next, .contact-icon {
+a, button, .portfolio-card, .skill-tag, .theme-toggle, .modal-close, .carousel-nav, .btn-view-fullscreen, .image-viewer-close, .image-viewer-prev, .image-viewer-next, .contact-icon, .fab-trigger, .fab-link {
   touch-action: manipulation;
 }
 
@@ -1173,6 +1173,105 @@ a.btn-primary:visited:hover {
 
 .modal-links a {
   font-size: 0.9rem;
+}
+
+/* ===== Floating Section Nav ===== */
+.fab-nav {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 90;
+}
+
+.fab-trigger {
+  width: 3rem;
+  height: 3rem;
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  box-shadow: var(--shadow-hover);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.fab-trigger:hover {
+  background: var(--accent-dark);
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+.fab-trigger[aria-expanded="true"] {
+  transform: rotate(90deg);
+}
+
+.fab-menu {
+  position: absolute;
+  bottom: calc(100% + 0.5rem);
+  right: 0;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hover);
+  padding: 0.5rem 0;
+  min-width: 140px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity var(--transition), visibility var(--transition), transform var(--transition);
+}
+
+.fab-menu[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.fab-link {
+  display: block;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+}
+
+.fab-link:hover {
+  background: var(--accent-bg);
+  color: var(--accent);
+}
+
+/* Mobile: larger touch targets, safe areas */
+@media (max-width: 768px) {
+  .fab-nav {
+    bottom: max(1rem, env(safe-area-inset-bottom, 0px));
+    right: max(1rem, env(safe-area-inset-right, 0px));
+  }
+  .fab-trigger {
+    width: 3.25rem;
+    height: 3.25rem;
+    min-width: 48px;
+    min-height: 48px;
+    font-size: 1.35rem;
+  }
+  .fab-menu {
+    bottom: calc(100% + 0.75rem);
+    min-width: 160px;
+    padding: 0.25rem 0;
+  }
+  .fab-link {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
 }
 
 /* ===== Responsive ===== */
