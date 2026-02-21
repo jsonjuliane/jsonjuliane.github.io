@@ -355,6 +355,7 @@
     .project-desc { font-size: 8.5pt; color: var(--text-muted); padding-left: 12px; }
 
     .misc-item { font-size: 9pt; color: var(--text-muted); margin-bottom: 2px; }
+    .misc-sub { font-size: 8.5pt; color: var(--text-muted); margin-top: 4px; margin-bottom: 2px; padding-left: 12px; }
 
     /* Animations */
     @keyframes fadeIn {
@@ -502,7 +503,7 @@
         <div class="tech-grid">
       <div><span class="tech-label">Primary</span><br><span class="tech-value">Kotlin, Java, Swift</span></div>
       <div><span class="tech-label">Cross-Platform</span><br><span class="tech-value">Dart, C#, XML, Lua</span></div>
-      <div><span class="tech-label">Backend</span><br><span class="tech-value">Python, Node.js</span></div>
+      <div><span class="tech-label">Backend</span><br><span class="tech-value">Python, Node.js, Go</span></div>
     </div>
     <div class="tech-category">iOS</div>
     <div class="tech-grid">
@@ -569,33 +570,28 @@
     </div>
 
     <div class="job">
-      <div class="job-header"><span class="job-title">Senior Mobile Engineer</span><span class="job-meta">03/2023 – Present</span></div>
-      <div class="job-meta"><span class="job-company"><a href="https://skedgo.com/">SkedGo</a></span> (MaaS platform)</div>
+      <div class="job-header"><span class="job-title">Senior Android Engineer</span><span class="job-meta">03/2023 – Present</span></div>
+      <div class="job-meta"><span class="job-company"><a href="https://skedgo.com/">SkedGo</a></span> (MaaS platform) · Contractual</div>
       <ul class="job-bullets">
         <li><strong>Development & leadership:</strong> Lead Android development for MaaS platform; oversee requirements, timelines, team delivery; review PRs</li>
         <li><strong>Product alignment:</strong> Sprint planning with CTO; drive Android codebase and feature parity with refined iOS experience</li>
-        <li><strong>Accessibility:</strong> Implemented and maintain dark mode, flexible text sizing across existing apps</li>
-        <li><strong>Localization & automation:</strong> Improved multi-language support via Crowdin; automated translation push/pull workflow through GitHub Actions</li>
-        <li><strong>Stability & reliability:</strong> Resolved lifecycle issues (screen restoration, user progress); fixed OOM/ANR crashes; addressed Firebase issues</li>
-        <li><strong>Compliance & build:</strong> Addressed 16KB Play policy requirement; updated deprecated dependencies that blocked build</li>
-        <li><strong>DevOps:</strong> Own CI/CD pipelines, build automation, release processes</li>
+        <li><strong>Accessibility & stability:</strong> Dark mode, flexible text sizing; resolved lifecycle issues, OOM/ANR crashes, Firebase issues</li>
+        <li><strong>Localization & automation:</strong> Multi-language support via Crowdin; automated translation push/pull through GitHub Actions</li>
+        <li><strong>DevOps & compliance:</strong> CI/CD pipelines, build automation, release processes; 16KB Play policy, deprecated dependency updates</li>
         <li><strong>SDK adoption:</strong> TripGo SDK powers 3+ client apps; TripGo app has 100K+ downloads (400+ cities, 4000+ transport providers globally)</li>
       </ul>
     </div>
 
     <div class="job">
-      <div class="job-header"><span class="job-title">Senior Mobile Engineer</span><span class="job-meta">03/2021 – 03/2023</span></div>
-      <div class="job-meta"><span class="job-company"><a href="https://www.outliant.com/">Outliant</a></span> (International digital agency)</div>
-      <p class="job-client">Client: <a href="https://sitecapture.com/">SiteCapture</a></p>
+      <div class="job-header"><span class="job-title">Senior Android Engineer</span><span class="job-meta">03/2021 – 03/2023</span></div>
+      <div class="job-meta"><span class="job-company"><a href="https://www.outliant.com/">Outliant</a></span> (International digital agency) · Contractual</div>
+      <p class="job-client">Client: <a href="https://sitecapture.com/">SiteCapture</a> (includes former FotoNotes)</p>
       <ul class="job-bullets">
         <li><strong>Sole Android engineer:</strong> End-to-end ownership of SiteCapture—field operations platform (5M+ projects, 100M+ photos) for solar, property management, construction across the US</li>
-        <li><strong>Technical leadership:</strong> Provide direction for applications; drive architecture decisions; deliver scalable, maintainable solutions</li>
-        <li><strong>Codebase modernization:</strong> Migrating Java to Kotlin; introduced Jetpack Compose, Coroutines, Hilt, Room, unit tests</li>
-        <li><strong>DevOps & automation:</strong> Integrated Jira with Bitrise—ticket status syncs with development workflow; automated builds deploy to Firebase (debug) and Play Store (prod)</li>
-        <li><strong>Performance & stability:</strong> Resolved long-standing ANRs and crashes; reduced loading times from ANR-prone to several seconds</li>
-        <li><strong>Media & sync:</strong> Migrated to CameraX; FFmpegKit for compression, decode/encode, video trimming; improved sync engine for web–mobile</li>
-        <li><strong>Auth:</strong> Integrated Auth0</li>
-        <li><strong>Stakeholder collaboration:</strong> Collaborate directly with US-based clients to gather requirements; align technical with business goals</li>
+        <li><strong>Technical leadership:</strong> Provide direction for applications; migrate and optimize codebases; research viable approaches for updates without breaking existing functionality</li>
+        <li><strong>Codebase modernization:</strong> Java → Kotlin; Jetpack Compose, Coroutines, Hilt, Room; CameraX, FFmpegKit; deprecation updates; async, thread-safe data handling to eliminate ANRs</li>
+        <li><strong>DevOps & automation:</strong> Jira–Bitrise integration; Firebase (debug) and Play Store (prod) deployments</li>
+        <li><strong>Stakeholder collaboration:</strong> Collaborate directly with US-based clients to gather requirements; plot timelines for task iterations</li>
       </ul>
     </div>
 
@@ -603,21 +599,22 @@
       <div class="job-header"><span class="job-title">Lead Android Engineer</span><span class="job-meta">07/2018 – 03/2021</span></div>
       <div class="job-meta"><span class="job-company"><a href="https://web.lalamove.com/">LalaFood</a></span> (Lalamove subsidiary — closed) · Makati, Philippines</div>
       <ul class="job-bullets">
-        <li><strong>Product pioneer:</strong> Pioneer of Lalamove's Food Industry startup LalaFood; delivered working food delivery app within 6 months with entire team; led development of all apps (User, Driver, Merchant) from scratch; 800+ partner merchants</li>
-        <li><strong>Architecture:</strong> Introduced MVVM with Dagger/Hilt, Room, RxJava/RxKotlin, Kotlin Coroutines for scalable, maintainable codebase</li>
-        <li><strong>Maps & notifications:</strong> Google Maps, Directions, Places, Geofencing; Firebase Cloud Messaging, Crashlytics, Remote Config for live map updates and push notifications</li>
-        <li><strong>Team leadership:</strong> Led 2 Android engineers; collaborated with international engineers from Hong Kong; managed timelines, code quality; implemented CI/CD, code reviews, load/stress testing</li>
-        <li><strong>Operations:</strong> Led ongoing maintenance, bug fixes, feature releases for high-traffic production apps</li>
+        <li><strong>Product pioneer:</strong> Engineered all apps (User, Driver, Merchant) from scratch; led 1 senior and 1 mid-level Android engineer; 800+ partner merchants; thousands of users in Metro Manila</li>
+        <li><strong>Architecture:</strong> MVVM, Dagger/Hilt, Room, RxJava/RxKotlin, Kotlin Coroutines; real-time order updates and rider tracking</li>
+        <li><strong>Maps & notifications:</strong> Google Maps, Directions, Places, Geofencing; Firebase Cloud Messaging, Crashlytics, Remote Config</li>
+        <li><strong>Operations:</strong> Maintained production apps; CI/CD, code reviews, load/stress testing</li>
       </ul>
     </div>
 
     <div class="job">
       <div class="job-header"><span class="job-title">Lead Mobile Engineer</span><span class="job-meta">11/2017 – 07/2018</span></div>
-      <div class="job-meta"><span class="job-company"><a href="https://dogandrooster.com/">Dog and Rooster Inc.</a></span> (US-based, 250+ clients) · Makati, Philippines</div>
+      <div class="job-meta"><span class="job-company"><a href="https://dogandrooster.com/">Dog and Rooster Inc.</a></span> (US-based, 250+ clients) · Contractual · Makati, Philippines</div>
+      <p class="job-client">Clients: <a href="https://kingston-media.com/">Kingston Media</a>, <a href="https://www.hoops247.com.au/">Hoops247</a></p>
       <ul class="job-bullets">
-        <li><strong>Product delivery:</strong> Pioneered, redesigned, and released multiple Android and cross-platform apps for US/global clients; end-to-end delivery using Java, React Native, Ionic, PhoneGap, Cordova across agency's client portfolio</li>
-        <li><strong>SDK integration:</strong> Designed systems with Android Mobile Vision (barcode/face detection), ZXing (scanning), Google Pay (WePay, Payment API) for payments, Firebase for analytics and crash reporting</li>
-        <li><strong>Cross-functional leadership:</strong> Android lead and standing PM; coordinated core app functionalities, requirements, deliverables with international designers, engineers, managers across time zones; ensured on-schedule delivery</li>
+        <li><strong>Product delivery:</strong> Pioneered, redesigned, and released multiple Android and cross-platform apps for US/global clients; Java, React Native, Ionic, Cordova</li>
+        <li><strong>Projects:</strong> Doughnation (WePay, Google Pay, QR/ZXing); Flipside (business card scanning, Firebase, image processing); Hoops247 (location, timezone); Kingston Media (Ionic—retail marketing, project management app)</li>
+        <li><strong>SDK integration:</strong> Android Mobile Vision, ZXing; WePay, Google Payment API; Firebase</li>
+        <li><strong>Cross-functional:</strong> Coordinated with international designers, developers, managers across time zones</li>
       </ul>
     </div>
 
@@ -625,11 +622,10 @@
       <div class="job-header"><span class="job-title">Lead Mobile Engineer</span><span class="job-meta">04/2016 – 11/2017</span></div>
       <div class="job-meta"><span class="job-company"><a href="https://www.upmood.com/">Taison Digital</a></span> (now Upmood) · UN, Manila, Philippines</div>
       <ul class="job-bullets">
-        <li><strong>Product pioneer:</strong> Led creation of Upmood—first emotion-tracking wearable and app; built two major apps (Android & iOS) from scratch; 1K+ downloads, Health & Fitness</li>
-        <li><strong>Domain expertise:</strong> Converted research-backed emotion algorithm to Java with scientists from Hong Kong; translated physiological data (heart rate, stress, vitality) into 11 emotions at 1.5–3 min intervals</li>
-        <li><strong>IoT integration:</strong> Integrated BLE with PPG-sensor smart watch; designed pipelines for raw sensor data → real-time emotional trends</li>
-        <li><strong>App features:</strong> Built monitoring app for emotional health, mood tracking, friend/family updates, watch notifications (SMS, calls)</li>
-        <li><strong>Team leadership:</strong> Spearheaded mobile engineering; supervised 1 entry-level engineer and 1 trainee</li>
+        <li><strong>Product pioneer:</strong> Led and pioneered creation of company's two major apps (Android & iOS) from scratch; served as mobile team's project manager; 1K+ downloads</li>
+        <li><strong>Domain expertise:</strong> Converted scientific formulae to Java with scientists from Hong Kong; translated physiological data into 11 emotions; migrated PHP backend to GoLang</li>
+        <li><strong>IoT integration:</strong> BLE with PPG-sensor smart watch; live data to connected users</li>
+        <li><strong>Team leadership:</strong> Supervised 1 entry-level engineer and 1 trainee</li>
       </ul>
     </div>
 
@@ -637,8 +633,9 @@
       <div class="job-header"><span class="job-title">Software Engineer</span><span class="job-meta">04/2015 – 04/2016</span></div>
       <div class="job-meta">Codesignate Inc · BGC, Philippines</div>
       <ul class="job-bullets">
-        <li><strong>Client delivery:</strong> Focused on development; released multiple Android apps for multiple clients; worked closely with PMs; reported team progress on sprint basis</li>
-        <li><strong>Ownership:</strong> Took over lead responsibility; worked with 1 mid-level Android engineer to deliver projects from scratch to production</li>
+        <li><strong>Client delivery:</strong> Supported senior developers; released multiple Android and iOS apps; worked with PMs; reported progress on sprint basis</li>
+        <li><strong>Projects:</strong> Smartlife (iOS—movies, music, ePINs, events); Konectik (Android—overseas calls, Flurry, Parse, chat); Sweetspot (location-based coupons); Project ERX (doctor records, prescriptions, PDF generation)</li>
+        <li><strong>Ownership:</strong> Took over lead; worked with 1 mid-level Android engineer to deliver projects from scratch to production</li>
       </ul>
     </div>
   </section>
@@ -647,25 +644,34 @@
     <h2 class="section-title">Education</h2>
     <div class="education-degree">Bachelor of Science in Computer Science (Graduate with Honors)</div>
     <div class="education-meta">Lyceum of the Philippines University · Intramuros, Manila · 2011 – 2015</div>
+    <p class="misc-item" style="margin-top: 8px;"><strong>Jose P. Laurel – Sotero H. Laurel President Scholarship</strong> · Lyceum of the Philippines University – Manila · March 2011</p>
   </section>
 
   <section class="section">
     <h2 class="section-title">Projects</h2>
     <div class="project">
-      <div class="project-title"><strong>SkedGo / TripGo</strong> · <a href="https://play.google.com/store/apps/details?id=com.buzzhives.android.tripplanner">Google Play</a></div>
+      <div class="project-title"><strong>SkedGo / TripGo</strong> · <a href="https://skedgo.com/">Website</a> · <a href="https://play.google.com/store/apps/details?id=com.buzzhives.android.tripplanner">Google Play</a></div>
       <div class="project-desc">MaaS—TripGo, ODIN PASS, Choose How You Move. <strong>100K+ downloads</strong>. 400+ cities, 4000+ providers. TripGo SDK: 3+ client apps.</div>
     </div>
     <div class="project">
-      <div class="project-title"><strong>SiteCapture</strong> (Outliant) · <a href="https://play.google.com/store/apps/details?id=com.sitecapture.app.sitecapture&hl=en_US">Google Play</a></div>
+      <div class="project-title"><strong>SiteCapture</strong> (Outliant) · <a href="https://sitecapture.com/">Website</a> · <a href="https://play.google.com/store/apps/details?id=com.sitecapture.app.sitecapture&hl=en_US">Google Play</a></div>
       <div class="project-desc">Field operations—photo capture, CRM integration. <strong>10K+ downloads</strong>. Solar, property management, construction.</div>
     </div>
     <div class="project">
       <div class="project-title"><strong>LalaFood Apps</strong> (Lalamove — closed)</div>
-      <div class="project-desc">User, Driver, Merchant ecosystem—Metro Manila's largest food delivery platform. <strong>800+ merchants</strong>.</div>
+      <div class="project-desc">User, Driver, Merchant ecosystem—Metro Manila's largest food delivery platform. <strong>800+ merchants</strong>. Real-time order updates, rider tracking.</div>
     </div>
     <div class="project">
-      <div class="project-title"><strong>Upmood</strong> (Taison Digital) · <a href="https://play.google.com/store/apps/details?id=com.td.upmood&hl=en">Google Play</a></div>
+      <div class="project-title"><strong>Upmood</strong> (Taison Digital) · <a href="https://www.upmood.com/">Website</a> · <a href="https://play.google.com/store/apps/details?id=com.td.upmood&hl=en">Google Play</a></div>
       <div class="project-desc">Emotion-tracking wearable app; PPG + BLE; 11 emotions. <strong>1K+ downloads</strong>.</div>
+    </div>
+    <div class="project">
+      <div class="project-title"><strong>Kingston Media</strong> (Dog and Rooster) · <a href="https://kingston-media.com/">Website</a> · <a href="https://apps.apple.com/app/kingston-media-group/id1329777730">App Store</a></div>
+      <div class="project-desc">Ionic cross-platform—retail marketing, project requests & management. Brand-specific visual marketing tool.</div>
+    </div>
+    <div class="project">
+      <div class="project-title"><strong>Hoops247</strong> (Dog and Rooster) · <a href="https://www.hoops247.com.au/">Website</a> · <a href="https://play.google.com/store/apps/details?id=com.hoop24seven&hl=en">Google Play</a></div>
+      <div class="project-desc">Basketball community app—courts, pickup runs, groups. Location and timezone-based functionalities.</div>
     </div>
     <div class="project">
       <div class="project-title"><strong>POS App</strong> (Freelance)</div>
@@ -677,6 +683,7 @@
     <h2 class="section-title">Mentorship & Leadership</h2>
     <p class="misc-item"><strong>Ground Gurus</strong> · Coding Bootcamp Mentor (2017–2018) · Android Development</p>
     <p class="misc-item"><strong>Junior Philippine Computer Society</strong> · Founder & President · Lyceum of the Philippines University</p>
+    <p class="misc-sub"><em>Outreach:</em> Dumagat community, General Nakar, Quezon—education, supplies, technology introduction.</p>
   </section>
   </main>
   </div>
