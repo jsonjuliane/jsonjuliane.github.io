@@ -44,8 +44,8 @@
 | **SiteCapture** (Outliant) | 10K+ downloads |
 | **Upmood** (Taison Digital) | 1K+ downloads |
 | **LalaFood** (Lalamove) | 800+ merchants |
-| **Kingston Media** (Dog and Rooster) | Live |
-| **Hoops247** (Dog and Rooster) | Live |
+| **Kingston Media** (Dog and Rooster) | Retail Marketing |
+| **Hoops247** (Dog and Rooster) | Basketball Community |
 | **POS App** (Freelance) | In use by food business |
 
 ---

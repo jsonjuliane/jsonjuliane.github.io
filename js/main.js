@@ -53,8 +53,14 @@ const projects = {
       'projects/LalaFood/Main/4.webp',
       'projects/LalaFood/Driver/0.webp',
       'projects/LalaFood/Driver/1.webp',
+      'projects/LalaFood/Driver/2.webp',
+      'projects/LalaFood/Driver/3.webp',
+      'projects/LalaFood/Driver/4.webp',
       'projects/LalaFood/Partners/0.webp',
-      'projects/LalaFood/Partners/1.webp'
+      'projects/LalaFood/Partners/1.webp',
+      'projects/LalaFood/Partners/2.webp',
+      'projects/LalaFood/Partners/3.webp',
+      'projects/LalaFood/Partners/4.webp'
     ],
     links: []
   },
