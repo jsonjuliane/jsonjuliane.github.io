@@ -19,6 +19,29 @@
   <meta name="twitter:title" content="Kim Jason Juliane — Senior Mobile Engineer">
   <meta name="twitter:description" content="10+ years building mobile apps for international clients. SkedGo, SiteCapture, LalaFood, Upmood.">
   <meta name="twitter:image" content="https://jsonjuliane.github.io/og-image.jpg">
+  <!-- Structured Data (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Kim Jason Juliane",
+    "jobTitle": "Senior Mobile Engineer",
+    "description": "Senior Mobile Engineer with 10+ years building Android and cross-platform apps for international clients—SkedGo, SiteCapture, LalaFood, Upmood.",
+    "url": "https://jsonjuliane.github.io/",
+    "image": "https://jsonjuliane.github.io/photo/me_alt.jpeg",
+    "sameAs": [
+      "https://www.linkedin.com/in/jsonjuliane/",
+      "https://github.com/jsonjuliane"
+    ],
+    "knowsAbout": ["Android", "Kotlin", "Flutter", "Jetpack Compose", "Mobile Development", "CI/CD"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Metro Manila",
+      "addressCountry": "PH"
+    },
+    "email": "jsonjuliane@gmail.com"
+  }
+  </script>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,7 +77,7 @@
       <div class="hero-inner">
         <div class="hero-photo-wrap animate-on-scroll">
           <div class="hero-photo-inner">
-            <img src="photo/me.jpeg" alt="Kim Jason Juliane" class="hero-photo" loading="lazy">
+            <img src="photo/me_alt.jpeg" alt="Kim Jason Juliane" class="hero-photo" loading="lazy">
             <span class="hero-photo-placeholder" aria-hidden="true"><i class="fa-solid fa-mobile-screen"></i></span>
           </div>
         </div>
@@ -189,6 +212,7 @@
           <div class="portfolio-card-preview">
             <img src="projects/Skedgo/logo.jpg" alt="SkedGo" class="portfolio-logo" loading="lazy">
             <span class="portfolio-preview-type">Android / MaaS</span>
+            <span class="download-badge">100K+ downloads</span>
           </div>
           <div class="portfolio-card-content">
             <h3>SkedGo / TripGo</h3>
@@ -200,6 +224,7 @@
           <div class="portfolio-card-preview">
             <img src="projects/SiteCapture/logo.png" alt="SiteCapture" class="portfolio-logo" loading="lazy">
             <span class="portfolio-preview-type">Android</span>
+            <span class="download-badge">10K+ downloads</span>
           </div>
           <div class="portfolio-card-content">
             <h3>SiteCapture</h3>
@@ -211,6 +236,7 @@
           <div class="portfolio-card-preview">
             <img src="projects/LalaFood/logo.jpg" alt="LalaFood" class="portfolio-logo" loading="lazy">
             <span class="portfolio-preview-type">Android</span>
+            <span class="download-badge">800+ merchants</span>
           </div>
           <div class="portfolio-card-content">
             <h3>LalaFood Apps</h3>
@@ -222,6 +248,7 @@
           <div class="portfolio-card-preview">
             <img src="projects/Upmood/logo.png" alt="Upmood" class="portfolio-logo" loading="lazy">
             <span class="portfolio-preview-type">Android / iOS</span>
+            <span class="download-badge">1K+ downloads</span>
           </div>
           <div class="portfolio-card-content">
             <h3>Upmood</h3>
@@ -233,10 +260,11 @@
           <div class="portfolio-card-preview">
             <span class="portfolio-preview-text">POS</span>
             <span class="portfolio-preview-type">Flutter</span>
+            <span class="download-badge">In use by food business</span>
           </div>
           <div class="portfolio-card-content">
             <h3>POS App</h3>
-            <p>Cross-platform Point-of-Sale—Web, Android, iOS, macOS. Inventory, orders, reports, multi-branch.</p>
+            <p>Cross-platform Point-of-Sale—Web, Android, iOS, macOS. In use by a food business for inventory and sales tracking.</p>
             <button class="btn btn-sm">View</button>
           </div>
         </article>

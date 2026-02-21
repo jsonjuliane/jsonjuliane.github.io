@@ -9,9 +9,10 @@ const projects = {
     title: 'SkedGo / TripGo',
     type: 'Android / MaaS',
     company: 'SkedGo',
-    position: 'Senior Android Engineer',
+    position: 'Senior Mobile Engineer',
     joined: 'March 2023',
-    description: 'MaaS platform—TripGo, ODIN PASS, Choose How You Move. Multi-modal journey planning, 400+ cities, 4000+ transport providers. TripGo SDK integrated by 3+ client apps (cities, transport agencies, corporates).',
+    downloads: '100K+',
+    description: 'MaaS platform—TripGo, ODIN PASS, Choose How You Move. Multi-modal journey planning, 400+ cities, 4000+ transport providers. 100K+ downloads. TripGo SDK integrated by 3+ client apps (cities, transport agencies, corporates).',
     images: [
       'projects/Skedgo/screen-0.webp',
       'projects/Skedgo/screen-1.webp',
@@ -20,19 +21,20 @@ const projects = {
     ],
     links: [
       { label: 'SkedGo', url: 'https://skedgo.com/' },
-      { label: 'Google Play', url: 'https://play.google.com/store/apps/developer?id=SkedGo+Pty+Ltd' }
+      { label: 'TripGo on Google Play', url: 'https://play.google.com/store/apps/details?id=com.buzzhives.android.tripplanner' }
     ]
   },
   sitecapture: {
     title: 'SiteCapture',
     type: 'Android',
     company: 'Outliant (Client: SiteCapture)',
-    position: 'Senior Android Engineer',
+    position: 'Senior Mobile Engineer',
     joined: 'March 2021',
+    downloads: '10K+',
     description: 'Field operations platform for construction—job site photo capture, data organization, CRM integration. 10K+ downloads. Solar, property management, construction industries across the US.',
     images: [],
     links: [
-      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.sitecapture.app.sitecapture&hl=en' },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.sitecapture.app.sitecapture&hl=en_US' },
       { label: 'Website', url: 'https://sitecapture.com/' }
     ]
   },
@@ -42,7 +44,8 @@ const projects = {
     company: 'LalaFood (Lalamove subsidiary)',
     position: 'Lead Android Engineer',
     joined: 'July 2018',
-    description: 'Full User, Driver, and Merchant Android ecosystem for one of Metro Manila\'s largest food delivery platforms. Thousands of users.',
+    metric: '800+ merchants',
+    description: 'Full User, Driver, and Merchant Android ecosystem for one of Metro Manila\'s largest food delivery platforms. 800+ partner merchants.',
     images: [
       'projects/LalaFood/Main/1.webp',
       'projects/LalaFood/Main/2.webp',
@@ -61,6 +64,7 @@ const projects = {
     company: 'Taison Digital',
     position: 'Lead Mobile Engineer',
     joined: 'April 2016',
+    downloads: '1K+',
     description: 'First emotion-tracking wearable app; PPG sensor + BLE integration detects 11 emotions from heart rate, stress, vitality. 1K+ downloads. Health & Fitness category.',
     images: [
       'projects/Upmood/screen-0.webp',
@@ -79,7 +83,8 @@ const projects = {
     company: 'Freelance',
     position: 'Cross-Platform Engineer',
     joined: '2024',
-    description: 'Cross-platform Point-of-Sale—Web, Android, iOS, macOS. Flutter, Riverpod, GoRouter, Hive, Firebase (Auth, Firestore), PDF/printing. Inventory, orders, sales reports, user management, multi-branch support.',
+    metric: 'In use by food business',
+    description: 'Cross-platform Point-of-Sale—Web, Android, iOS, macOS. In use by a food business for inventory management and personal sales tracking. Flutter, Riverpod, GoRouter, Hive, Firebase (Auth, Firestore), PDF/printing.',
     images: (() => {
       const imgs = [];
       for (let i = 1; i <= 17; i++) imgs.push(`projects/Sam's POS App/${i}.png`);
@@ -149,7 +154,8 @@ function openModal(projectId) {
   currentImageIndex = 0;
 
   modalTitle.textContent = p.title;
-  modalMeta.innerHTML = `<strong>Company:</strong> ${p.company} · <strong>Position:</strong> ${p.position} · <strong>Joined:</strong> ${p.joined}`;
+  const badgeHtml = p.downloads ? ` · <span class="download-badge">${p.downloads} downloads</span>` : (p.metric ? ` · <span class="download-badge">${p.metric}</span>` : '');
+  modalMeta.innerHTML = `<strong>Company:</strong> ${p.company} · <strong>Position:</strong> ${p.position} · <strong>Joined:</strong> ${p.joined}${badgeHtml}`;
   modalDescription.textContent = p.description;
 
   modalLinks.innerHTML = '';
@@ -304,32 +310,55 @@ document.querySelectorAll('.animate-section').forEach(section => {
 const skillTooltip = document.getElementById('skill-tooltip');
 const categoryLabels = { mobile: 'Mobile', cloud: 'Cloud', devops: 'DevOps', data: 'Data & Backend', 'cross-platform': 'Cross-Platform', languages: 'Languages', integrations: 'Integrations' };
 
+function showSkillTooltip(tag) {
+  if (!skillTooltip) return;
+  const cat = tag.dataset.category;
+  const detail = tag.dataset.detail;
+  if (cat && detail) {
+    skillTooltip.querySelector('.skill-tooltip-category').textContent = categoryLabels[cat] || cat;
+    skillTooltip.querySelector('.skill-tooltip-detail').textContent = detail;
+    skillTooltip.classList.add('visible');
+    skillTooltip.setAttribute('aria-hidden', 'false');
+    const rect = tag.getBoundingClientRect();
+    const tooltipWidth = 280;
+    const padding = 12;
+    let left = rect.left + rect.width / 2;
+    left = Math.max(tooltipWidth / 2 + padding, Math.min(window.innerWidth - tooltipWidth / 2 - padding, left));
+    skillTooltip.style.left = left + 'px';
+    skillTooltip.style.top = rect.top + 'px';
+    tag.dataset.tooltipActive = '1';
+  }
+}
+
+function hideSkillTooltip(tag) {
+  if (skillTooltip) {
+    skillTooltip.classList.remove('visible');
+    skillTooltip.setAttribute('aria-hidden', 'true');
+    if (tag) delete tag.dataset.tooltipActive;
+  }
+}
+
 document.querySelectorAll('.skill-tag').forEach((tag, i) => {
   tag.dataset.index = i;
-  tag.addEventListener('mouseenter', (e) => {
-    if (!skillTooltip) return;
-    const cat = tag.dataset.category;
-    const detail = tag.dataset.detail;
-    if (cat && detail) {
-      skillTooltip.querySelector('.skill-tooltip-category').textContent = categoryLabels[cat] || cat;
-      skillTooltip.querySelector('.skill-tooltip-detail').textContent = detail;
-      skillTooltip.classList.add('visible');
-      skillTooltip.setAttribute('aria-hidden', 'false');
-      const rect = tag.getBoundingClientRect();
-      const tooltipWidth = 280;
-      const padding = 12;
-      let left = rect.left + rect.width / 2;
-      left = Math.max(tooltipWidth / 2 + padding, Math.min(window.innerWidth - tooltipWidth / 2 - padding, left));
-      skillTooltip.style.left = left + 'px';
-      skillTooltip.style.top = rect.top + 'px';
+  tag.addEventListener('mouseenter', () => showSkillTooltip(tag));
+  tag.addEventListener('mouseleave', () => hideSkillTooltip(tag));
+  // Mobile: tap to show, tap again or tap outside to hide
+  tag.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (tag.dataset.tooltipActive === '1') {
+      hideSkillTooltip(tag);
+    } else {
+      document.querySelectorAll('.skill-tag').forEach(t => delete t.dataset.tooltipActive);
+      showSkillTooltip(tag);
     }
   });
-  tag.addEventListener('mouseleave', () => {
-    if (skillTooltip) {
-      skillTooltip.classList.remove('visible');
-      skillTooltip.setAttribute('aria-hidden', 'true');
-    }
-  });
+});
+
+// Hide tooltip when tapping outside on mobile
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.skill-tag') && !e.target.closest('.skill-tooltip')) {
+    document.querySelectorAll('.skill-tag').forEach(t => hideSkillTooltip(t));
+  }
 });
 
 // ===== Contact Form Modal =====

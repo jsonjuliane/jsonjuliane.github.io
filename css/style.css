@@ -39,6 +39,11 @@
 
 html { scroll-behavior: smooth; }
 
+/* Remove 300ms tap delay on mobile for faster clicks */
+a, button, .portfolio-card, .skill-tag, .theme-toggle, .modal-close, .carousel-nav, .btn-view-fullscreen, .image-viewer-close, .image-viewer-prev, .image-viewer-next, .contact-icon {
+  touch-action: manipulation;
+}
+
 body {
   font-family: var(--font-sans);
   font-size: 16px;
@@ -144,6 +149,15 @@ html:not([data-theme]) .theme-icon.sun { display: inline; }
 .btn-primary:hover {
   background: var(--accent-dark);
   transform: translateY(-1px);
+}
+
+/* Keep button styling when visited (avoids blue flash on mobile) */
+a.btn-primary:visited {
+  color: white;
+  background: var(--accent);
+}
+a.btn-primary:visited:hover {
+  background: var(--accent-dark);
 }
 
 .btn-outline {
@@ -563,6 +577,29 @@ html:not([data-theme]) .theme-icon.sun { display: inline; }
   color: var(--text-muted);
 }
 
+.download-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-top: 0.25rem;
+  letter-spacing: 0.02em;
+}
+
+.modal-meta .download-badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--accent);
+  background: var(--accent-bg);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.25rem;
+  vertical-align: middle;
+}
+
 .portfolio-card-content {
   padding: 1rem 1.25rem;
 }
@@ -642,7 +679,7 @@ html:not([data-theme]) .theme-icon.sun { display: inline; }
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   transition: box-shadow var(--transition), transform var(--transition);
-  cursor: default;
+  cursor: pointer;
   position: relative;
 }
 

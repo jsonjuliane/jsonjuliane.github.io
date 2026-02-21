@@ -1,6 +1,10 @@
 # macOS
 .DS_Store
 
+# Python
+.venv/
+venv/
+
 # Editor
 .vscode/
 .idea/
