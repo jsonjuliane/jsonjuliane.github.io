@@ -340,10 +340,11 @@ function hideSkillTooltip(tag) {
 
 document.querySelectorAll('.skill-tag').forEach((tag, i) => {
   tag.dataset.index = i;
+  tag.setAttribute('role', 'button');
+  tag.setAttribute('tabindex', '0');
   tag.addEventListener('mouseenter', () => showSkillTooltip(tag));
   tag.addEventListener('mouseleave', () => hideSkillTooltip(tag));
-  // Mobile: tap to show, tap again or tap outside to hide
-  tag.addEventListener('click', (e) => {
+  function handleSkillTap(e) {
     e.preventDefault();
     if (tag.dataset.tooltipActive === '1') {
       hideSkillTooltip(tag);
@@ -351,15 +352,29 @@ document.querySelectorAll('.skill-tag').forEach((tag, i) => {
       document.querySelectorAll('.skill-tag').forEach(t => delete t.dataset.tooltipActive);
       showSkillTooltip(tag);
     }
+  }
+  // touchend: single-tap on Safari/iOS (click requires double-tap on non-interactive elements)
+  tag.addEventListener('touchend', (e) => {
+    if (e.target.closest('.skill-tag') === tag) {
+      handleSkillTap(e);
+      e.preventDefault();
+    }
+  }, { passive: false });
+  // pointerdown: mouse + fallback for touch (Safari may not fire touchend in some cases)
+  tag.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse') handleSkillTap(e);
   });
+  tag.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleSkillTap(e); } });
 });
 
-// Hide tooltip when tapping outside on mobile
-document.addEventListener('click', (e) => {
+// Hide tooltip when tapping outside (click + touchend for Safari)
+function hideTooltipIfOutside(e) {
   if (!e.target.closest('.skill-tag') && !e.target.closest('.skill-tooltip')) {
     document.querySelectorAll('.skill-tag').forEach(t => hideSkillTooltip(t));
   }
-});
+}
+document.addEventListener('click', hideTooltipIfOutside);
+document.addEventListener('touchend', hideTooltipIfOutside);
 
 // ===== Contact Form Modal =====
 const contactModalOverlay = document.getElementById('contact-modal-overlay');

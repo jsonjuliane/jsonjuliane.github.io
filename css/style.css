@@ -37,7 +37,10 @@
 /* ===== Reset & Base ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 /* Remove 300ms tap delay on mobile for faster clicks */
 a, button, .portfolio-card, .skill-tag, .theme-toggle, .modal-close, .carousel-nav, .btn-view-fullscreen, .image-viewer-close, .image-viewer-prev, .image-viewer-next, .contact-icon {
