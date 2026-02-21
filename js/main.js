@@ -31,11 +31,11 @@ const projects = {
     position: 'Senior Mobile Engineer',
     joined: 'March 2021',
     downloads: '10K+',
-    description: 'Field operations platform for construction—job site photo capture, data organization, CRM integration. 10K+ downloads. Solar, property management, construction industries across the US.',
+    description: 'Field operations platform for construction—job site photo capture, data organization, CRM integration. 10K+ downloads. Solar, property management, construction industries across the US. (Includes former FotoNotes.)',
     images: [],
     links: [
-      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.sitecapture.app.sitecapture&hl=en_US' },
-      { label: 'Website', url: 'https://sitecapture.com/' }
+      { label: 'Website', url: 'https://sitecapture.com/' },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.sitecapture.app.sitecapture&hl=en_US' }
     ]
   },
   lalafood: {
@@ -45,7 +45,7 @@ const projects = {
     position: 'Lead Android Engineer',
     joined: 'July 2018',
     metric: '800+ merchants',
-    description: 'Full User, Driver, and Merchant Android ecosystem for one of Metro Manila\'s largest food delivery platforms. 800+ partner merchants.',
+    description: 'Full User, Driver, and Merchant Android ecosystem for one of Metro Manila\'s largest food delivery platforms. 800+ partner merchants. Real-time order updates and rider tracking. (Platform closed.)',
     images: [
       'projects/LalaFood/Main/1.webp',
       'projects/LalaFood/Main/2.webp',
@@ -75,6 +75,47 @@ const projects = {
     links: [
       { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.td.upmood&hl=en' },
       { label: 'Website', url: 'https://www.upmood.com/' }
+    ]
+  },
+  'kingston-media': {
+    title: 'Kingston Media',
+    type: 'Ionic',
+    company: 'Dog and Rooster Inc.',
+    position: 'Lead Mobile Engineer',
+    joined: 'November 2017',
+    metric: 'Retail Marketing',
+    description: 'Ionic cross-platform app for retail marketing, project requests & management. Brand-specific visual marketing tool. Fixing permissions and library inconsistencies for Android and iOS; lead on release versions and debugging.',
+    images: [
+      'projects/Kingston Media/1.webp',
+      'projects/Kingston Media/2.webp',
+      'projects/Kingston Media/3.webp',
+      'projects/Kingston Media/4.webp',
+      'projects/Kingston Media/5.webp'
+    ],
+    links: [
+      { label: 'Website', url: 'https://kingston-media.com/' },
+      { label: 'App Store', url: 'https://apps.apple.com/app/kingston-media-group/id1329777730' }
+    ]
+  },
+  'hoops247': {
+    title: 'Hoops247',
+    type: 'Android',
+    company: 'Dog and Rooster Inc.',
+    position: 'Lead Mobile Engineer',
+    joined: 'November 2017',
+    metric: 'Basketball Community',
+    description: 'Basketball community app—courts, pickup runs, groups. Location and timezone-based functionalities. Connect with the basketball community; search for courts and pickup games.',
+    images: [
+      'projects/Hoops24Seven/1.webp',
+      'projects/Hoops24Seven/2.webp',
+      'projects/Hoops24Seven/3.webp',
+      'projects/Hoops24Seven/4.webp',
+      'projects/Hoops24Seven/5.webp',
+      'projects/Hoops24Seven/6.webp'
+    ],
+    links: [
+      { label: 'Website', url: 'https://www.hoops247.com.au/' },
+      { label: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.hoop24seven&hl=en' }
     ]
   },
   pos: {
