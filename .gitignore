@@ -10,3 +10,8 @@ venv/
 .idea/
 *.swp
 *.swo
+
+# Personal / Private
+resume/LinkedIn_Profile_Content.md
+resume/JobStreet_Profile_Content.md
+docs/project-ideas.md

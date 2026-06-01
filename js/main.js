@@ -174,6 +174,16 @@ if (themeToggle) {
 
 initTheme();
 
+// ===== Hero photo fallback =====
+const heroPhoto = document.querySelector('.hero-photo');
+const heroPhotoInner = document.querySelector('.hero-photo-inner');
+if (heroPhoto && heroPhotoInner) {
+  heroPhoto.addEventListener('error', () => heroPhotoInner.classList.add('is-photo-error'));
+  if (heroPhoto.complete && heroPhoto.naturalHeight === 0) {
+    heroPhotoInner.classList.add('is-photo-error');
+  }
+}
+
 // ===== Modal =====
 const overlay = document.getElementById('modal-overlay');
 const modalClose = document.getElementById('modal-close');
@@ -355,7 +365,7 @@ document.querySelectorAll('.animate-section').forEach(section => {
 
 // ===== Skill Tooltip =====
 const skillTooltip = document.getElementById('skill-tooltip');
-const categoryLabels = { mobile: 'Mobile', cloud: 'Cloud', devops: 'DevOps', data: 'Data & Backend', 'cross-platform': 'Cross-Platform', languages: 'Languages', integrations: 'Integrations' };
+const categoryLabels = { mobile: 'Mobile', cloud: 'Cloud', devops: 'DevOps', data: 'Data & Backend', 'cross-platform': 'Cross-Platform', 'web-desktop': 'Web & Desktop', languages: 'Languages', integrations: 'Integrations' };
 
 function showSkillTooltip(tag) {
   if (!skillTooltip) return;
